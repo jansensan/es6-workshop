@@ -28729,30 +28729,19 @@
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _homeHtml = __webpack_require__(11);
+	var _homeController = __webpack_require__(11);
 	
-	var _homeHtml2 = _interopRequireDefault(_homeHtml);
+	var _homeDirective = __webpack_require__(12);
 	
-	var _homeController = __webpack_require__(12);
-	
-	var _homeCopyHomeCopy = __webpack_require__(13);
+	var _homeCopyHomeCopy = __webpack_require__(14);
 	
 	// no issue, webpack handles duplication and circular refs
 	
 	// create var to export
-	var homeModule = _angular2['default'].module('home', getDependencies()).directive('home', Home);
+	var homeModule = _angular2['default'].module('home', getDependencies()).directive('home', _homeDirective.HomeDirective);
 	
 	// export for derefencing (todo: read more about this)
 	exports.homeModule = homeModule;
-	
-	function Home() {
-	  var home = {
-	    template: _homeHtml2['default'],
-	    controller: _homeController.HomeController,
-	    restrict: 'E'
-	  };
-	  return home;
-	}
 	
 	function getDependencies() {
 	  return [_homeCopyHomeCopy.homeCopyModule.name];
@@ -28802,12 +28791,6 @@
 /* 11 */
 /***/ function(module, exports) {
 
-	module.exports = "<section class=\"home\">\n  <h1>HOME</h1>\n  <home-copy></home-copy>\n</section>"
-
-/***/ },
-/* 12 */
-/***/ function(module, exports) {
-
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -28831,7 +28814,42 @@
 	exports.HomeController = HomeController;
 
 /***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _homeHtml = __webpack_require__(13);
+	
+	var _homeHtml2 = _interopRequireDefault(_homeHtml);
+	
+	var _homeController = __webpack_require__(11);
+	
+	function HomeDirective() {
+	  var home = {
+	    template: _homeHtml2['default'],
+	    controller: _homeController.HomeController,
+	    restrict: 'E'
+	  };
+	  return home;
+	}
+	
+	exports.HomeDirective = HomeDirective;
+
+/***/ },
 /* 13 */
+/***/ function(module, exports) {
+
+	module.exports = "<section class=\"home\">\n  <h1>HOME</h1>\n  <home-copy></home-copy>\n</section>"
+
+/***/ },
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28846,7 +28864,7 @@
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _homeCopyHtml = __webpack_require__(14);
+	var _homeCopyHtml = __webpack_require__(15);
 	
 	var _homeCopyHtml2 = _interopRequireDefault(_homeCopyHtml);
 	
@@ -28865,7 +28883,7 @@
 	}
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
 	module.exports = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu egestas dui. Etiam ornare egestas mi, ac sodales felis consequat id. Curabitur lacinia at eros ac dictum. Maecenas dignissim tellus id leo tempor, eu faucibus augue consequat. Aliquam erat volutpat. Morbi eu leo aliquet, bibendum neque quis, feugiat augue. Donec id rhoncus sapien. Donec auctor ullamcorper pharetra. Quisque consequat nunc mi. Mauris vel lectus vitae orci euismod vulputate in eget felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.\n</p>"

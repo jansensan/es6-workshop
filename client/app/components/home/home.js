@@ -1,7 +1,6 @@
 import './home.css';
 import angular from 'angular';
-import template from './home.html';
-import {HomeController as controller} from './home.controller';
+import {HomeDirective} from './home.directive';
 import {homeCopyModule} from './home-copy/home-copy';
 
 // no issue, webpack handles duplication and circular refs
@@ -9,19 +8,10 @@ import {homeCopyModule} from './home-copy/home-copy';
 // create var to export
 let homeModule = angular
   .module('home', getDependencies())
-  .directive('home', Home);
+  .directive('home', HomeDirective);
 
 // export for derefencing (todo: read more about this)
 export {homeModule};
-
-function Home() {
-  let home = {
-    template,
-    controller,
-    restrict: 'E'
-  };
-  return home;
-}
 
 function getDependencies() {
   return [
