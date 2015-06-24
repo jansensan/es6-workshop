@@ -28729,9 +28729,7 @@
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _homeController = __webpack_require__(11);
-	
-	var _homeDirective = __webpack_require__(12);
+	var _homeDirective = __webpack_require__(11);
 	
 	var _homeCopyHomeCopy = __webpack_require__(14);
 	
@@ -28789,6 +28787,41 @@
 
 /***/ },
 /* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _homeHtml = __webpack_require__(12);
+	
+	var _homeHtml2 = _interopRequireDefault(_homeHtml);
+	
+	var _homeController = __webpack_require__(13);
+	
+	function HomeDirective() {
+	  var home = {
+	    template: _homeHtml2['default'],
+	    controller: _homeController.HomeController,
+	    restrict: 'E'
+	  };
+	  return home;
+	}
+	
+	exports.HomeDirective = HomeDirective;
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	module.exports = "<section class=\"home\">\n  <h1>HOME</h1>\n  <home-copy></home-copy>\n</section>"
+
+/***/ },
+/* 13 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28814,41 +28847,6 @@
 	exports.HomeController = HomeController;
 
 /***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _homeHtml = __webpack_require__(13);
-	
-	var _homeHtml2 = _interopRequireDefault(_homeHtml);
-	
-	var _homeController = __webpack_require__(11);
-	
-	function HomeDirective() {
-	  var home = {
-	    template: _homeHtml2['default'],
-	    controller: _homeController.HomeController,
-	    restrict: 'E'
-	  };
-	  return home;
-	}
-	
-	exports.HomeDirective = HomeDirective;
-
-/***/ },
-/* 13 */
-/***/ function(module, exports) {
-
-	module.exports = "<section class=\"home\">\n  <h1>HOME</h1>\n  <home-copy></home-copy>\n</section>"
-
-/***/ },
 /* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -28860,11 +28858,13 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
+	__webpack_require__(15);
+	
 	var _angular = __webpack_require__(5);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _homeCopyHtml = __webpack_require__(15);
+	var _homeCopyHtml = __webpack_require__(17);
 	
 	var _homeCopyHtml2 = _interopRequireDefault(_homeCopyHtml);
 	
@@ -28884,9 +28884,49 @@
 
 /***/ },
 /* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(16);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./home-copy.css", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./home-copy.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".home-copy {\n  padding: 16px;\n  background-color: #f7f7f7;\n  text-align: justify;\n  letter-spacing: 1.25;\n}", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu egestas dui. Etiam ornare egestas mi, ac sodales felis consequat id. Curabitur lacinia at eros ac dictum. Maecenas dignissim tellus id leo tempor, eu faucibus augue consequat. Aliquam erat volutpat. Morbi eu leo aliquet, bibendum neque quis, feugiat augue. Donec id rhoncus sapien. Donec auctor ullamcorper pharetra. Quisque consequat nunc mi. Mauris vel lectus vitae orci euismod vulputate in eget felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.\n</p>"
+	module.exports = "<p class=\"home-copy\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu egestas dui. Etiam ornare egestas mi, ac sodales felis consequat id. Curabitur lacinia at eros ac dictum. Maecenas dignissim tellus id leo tempor, eu faucibus augue consequat. Aliquam erat volutpat. Morbi eu leo aliquet, bibendum neque quis, feugiat augue. Donec id rhoncus sapien. Donec auctor ullamcorper pharetra. Quisque consequat nunc mi. Mauris vel lectus vitae orci euismod vulputate in eget felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.\n</p>"
 
 /***/ }
 /******/ ]);

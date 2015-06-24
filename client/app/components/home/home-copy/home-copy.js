@@ -1,3 +1,4 @@
+import './home-copy.css';
 import angular from 'angular';
 import template from './home-copy.html';
 
