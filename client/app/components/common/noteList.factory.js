@@ -3,10 +3,11 @@ let count = 0;
 
 let Notes = ($http) => {
   let notes = [];
-  const api = 'http://localhost:3000/notes';
+  const API = 'http://localhost:3000/notes';
 
   let getAllNotes = () => {
-    return $http.get(api)
+    // TODO: check out this a bit more (fat arrows and destructuring)
+    return $http.get(API)
       .then(({data}) => {
         notes = data;
       });

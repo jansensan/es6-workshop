@@ -28700,13 +28700,15 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
+	var _noteListModel = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./noteList.model\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	
 	var _noteListFactory = __webpack_require__(8);
 	
 	var _angular = __webpack_require__(5);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var commonModule = _angular2['default'].module('common', []).factory('Notes', _noteListFactory.Notes);
+	var commonModule = _angular2['default'].module('common', []).factory('NotesModel', _noteListModel.NotesModel).factory('Notes', _noteListFactory.Notes);
 	
 	exports.commonModule = commonModule;
 
@@ -28730,10 +28732,11 @@
 	
 	var Notes = function Notes($http) {
 	  var notes = [];
-	  var api = 'http://localhost:3000/notes';
+	  var API = 'http://localhost:3000/notes';
 	
 	  var getAllNotes = function getAllNotes() {
-	    return $http.get(api).then(function (_ref) {
+	    // TODO: check out this a bit more (fat arrows and destructuring)
+	    return $http.get(API).then(function (_ref) {
 	      var data = _ref.data;
 	
 	      notes = data;
@@ -41278,7 +41281,6 @@
 	  _createClass(NoteMakerController, [{
 	    key: 'makeNote',
 	    value: function makeNote(content) {
-	      console.log(content);
 	      this.Notes.createNote(content);
 	    }
 	  }]);
@@ -41287,6 +41289,7 @@
 	})();
 	
 	NoteMakerController.$inject = ['Notes'];
+	
 	exports.NoteMakerController = NoteMakerController;
 
 /***/ },
