@@ -430,15 +430,17 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+	__webpack_require__(9);
+
 	var _angular = __webpack_require__(5);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _homeHtml = __webpack_require__(9);
+	var _homeHtml = __webpack_require__(11);
 
 	var _homeHtml2 = _interopRequireDefault(_homeHtml);
 
-	var _homeController = __webpack_require__(10);
+	var _homeController = __webpack_require__(12);
 
 	// no issue, webpack handles duplication and circular refs
 
@@ -463,12 +465,52 @@
 
 /***/ },
 /* 9 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<section>\n  <h1>HOME</h1>\n</section>"
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(10);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./home.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./home.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
 /* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".home {\n  padding: 16px 48px;\n  background-color: gray;\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	module.exports = "<section class=\"home\">\n  <h1>HOME</h1>\n</section>"
+
+/***/ },
+/* 12 */
 /***/ function(module, exports) {
 
 	'use strict';
