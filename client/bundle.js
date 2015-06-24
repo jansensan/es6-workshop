@@ -28700,10 +28700,13 @@
 	
 	var _noteMakerNoteMaker = __webpack_require__(14);
 	
+	var _noteNote = __webpack_require__(21);
+	
 	var _noteListNoteList = __webpack_require__(20);
 	
 	exports.homeModule = _homeHome.homeModule;
 	exports.noteMakerModule = _noteMakerNoteMaker.noteMakerModule;
+	exports.noteModule = _noteNote.noteModule;
 	exports.noteListModule = _noteListNoteList.noteListModule;
 
 /***/ },
@@ -28724,7 +28727,11 @@
 	
 	var _homeComponent = __webpack_require__(9);
 	
-	var homeModule = _angular2['default'].module('home', []).directive('home', _homeComponent.HomeComponent);
+	var _noteMakerNoteMaker = __webpack_require__(14);
+	
+	var _noteListNoteList = __webpack_require__(20);
+	
+	var homeModule = _angular2['default'].module('home', [_noteMakerNoteMaker.noteMakerModule.name, _noteListNoteList.noteListModule.name]).directive('home', _homeComponent.HomeComponent);
 	
 	exports.homeModule = homeModule;
 
@@ -28956,9 +28963,11 @@
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _noteListComponent = __webpack_require__(21);
+	var _noteNote = __webpack_require__(21);
 	
-	var noteListModule = _angular2['default'].module('noteList', []).directive('noteList', _noteListComponent.NoteListComponent);
+	var _noteListComponent = __webpack_require__(27);
+	
+	var noteListModule = _angular2['default'].module('noteList', [_noteNote.noteModule.name]).directive('noteList', _noteListComponent.NoteListComponent);
 	
 	exports.noteListModule = noteListModule;
 
@@ -28974,11 +28983,141 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	__webpack_require__(22);
+	var _angular = __webpack_require__(5);
 	
-	var _noteListController = __webpack_require__(24);
+	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _noteListHtml = __webpack_require__(25);
+	var _noteComponent = __webpack_require__(22);
+	
+	var noteModule = _angular2['default'].module('note', []).directive('note', _noteComponent.NoteComponent);
+	
+	exports.noteModule = noteModule;
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	__webpack_require__(23);
+	
+	var _noteController = __webpack_require__(25);
+	
+	var _noteHtml = __webpack_require__(26);
+	
+	var _noteHtml2 = _interopRequireDefault(_noteHtml);
+	
+	var NoteComponent = function NoteComponent() {
+	  return {
+	    restrict: 'E',
+	    scope: {},
+	    controller: _noteController.NoteController,
+	    template: _noteHtml2['default']
+	  };
+	};
+	
+	exports.NoteComponent = NoteComponent;
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(24);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./note.css", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./note.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".note {\n  background-color: blue;\n  color: #fff;\n}", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 25 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var NoteController = (function () {
+	  function NoteController() {
+	    _classCallCheck(this, NoteController);
+	  }
+	
+	  _createClass(NoteController, [{
+	    key: "contructor",
+	    value: function contructor() {}
+	  }]);
+	
+	  return NoteController;
+	})();
+	
+	NoteController.$inject = [];
+	
+	exports.NoteController = NoteController;
+
+/***/ },
+/* 26 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"note\">\n  note goes here\n</div>"
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	__webpack_require__(28);
+	
+	var _noteListController = __webpack_require__(30);
+	
+	var _noteListHtml = __webpack_require__(31);
 	
 	var _noteListHtml2 = _interopRequireDefault(_noteListHtml);
 	
@@ -28994,13 +29133,13 @@
 	exports.NoteListComponent = NoteListComponent;
 
 /***/ },
-/* 22 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(23);
+	var content = __webpack_require__(29);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(4)(content, {});
@@ -29020,7 +29159,7 @@
 	}
 
 /***/ },
-/* 23 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();
@@ -29034,7 +29173,7 @@
 
 
 /***/ },
-/* 24 */
+/* 30 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29082,7 +29221,7 @@
 	exports.NoteListController = NoteListController;
 
 /***/ },
-/* 25 */
+/* 31 */
 /***/ function(module, exports) {
 
 	module.exports = "<section>\n  <note ng-repeat=\"note in notes\" note-data=\"note\"></note>\n</section>\n"
