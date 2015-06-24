@@ -3,12 +3,12 @@ module.exports = {
   output: {
     filename: 'bundle.js'
   },
-
+  devtool: 'sourcemap',
   module: {
     loaders: [{
       test: /\.js$/,
       loader: 'babel',
-      excludes: [/\.node_modules/]
+      exclude: [/node_modules/]
     }, {
       test: /\.html$/,
       loader: 'raw'
